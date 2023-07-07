@@ -1,0 +1,12 @@
+ before_script:
+    - echo "iam deploying here to dev"
+    - cd admin-view 
+    - kubectl version --short --client
+    - helm version 
+    - mkdir ~/.kube
+    - echo "$kube_config" | base64 -d >~/.kube/config
+    - apk add --no-cache curl jq python3 py3-pip
+    - pip install awscli
+    - kubectl get nodes 
+    - kubectl get ns 
+    - helm list
